@@ -1,0 +1,52 @@
+﻿@model trabajo2Web.ViewModel.LstClientViewModel
+@{
+    ViewBag.Title = "LstClient";
+
+}
+
+
+<div class="row">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Sex</th>
+                <th>Description</th>
+                <th>City</th>
+                <th>Options</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.LstClient)
+            {
+                <tr>
+                    <td>@item.DNI</td>
+                    <td>@item.firstName</td>
+                    <td>@item.lastName</td>
+                    <td>@item.sex</td>
+                    <td>@item.description</td>
+                    <td>@item.City.name</td>
+                    <td>
+                        <a class="btn" href="@Url.Action("AddEditClient", new { clientId= item.clientId})">
+                            <i class="fa fa-edit"></i>&nbsp; Edit
+                        </a>
+
+                    </td>
+                    <td>
+                        <a class="btn" href="@Url.Action("EliminarClient", new { clientId = item.clientId})">
+                            <i class="fa fa-edit"></i>&nbsp; Delete
+                        </a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="@Url.Action("AddEditClient")">
+        <i class="fa fa-plus"></i>&nbsp;Add Client
+    </a>
+</div>
+
