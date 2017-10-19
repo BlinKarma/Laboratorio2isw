@@ -48,24 +48,17 @@
                 <ul class="nav">
 
                     <li>
-                        <a href="@Url.Action("Dashboard", "Home")"><i class="fa fa-fw fa-flag"></i> Dashboard</a>
+                        <a href="@Url.Action("Dashboard", "Home")"><i class="ti-panel"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="@Url.Action("LstClient", "Home")"><i class="fa fa-fw fa-flag"></i> Client List</a>
+                        <a href="@Url.Action("LstClient", "Home")"><i class="ti-user"></i> Client List</a>
                     </li>
+
                 </ul>
             </div>
         </div>
 
-        @*<div id="page-wrapper">*@
-        <div class="container-fluid">
 
-            @if (TempData["Mensaje"] != null)
-            {
-                <div class="alert alert-success">
-                    @TempData["Mensaje"]
-                </div>
-            }
 
             @RenderBody()
         </div>

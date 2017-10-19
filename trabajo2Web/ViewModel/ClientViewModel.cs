@@ -25,15 +25,18 @@ namespace trabajo2Web.ViewModel
 
         public void CargarDatos(int? clientId)
         {
-            trabajoparcialEntities context = new trabajoparcialEntities();
-            Client objClient = context.Client.FirstOrDefault(x => x.clientId == clientId);
+            this.clientId = clientId;
+
+            if(clientId.HasValue)
+            {trabajoparcialEntities context = new trabajoparcialEntities();
+            Client objClient = context.Client.FirstOrDefault(x=>x.clientId == clientId);
             this.DNI = objClient.DNI;
             this.firstName = objClient.firstName;
             this.lastName = objClient.lastName;
             this.sex = objClient.sex;
             this.description = objClient.description;
             this.cityId = objClient.cityId;
-
+            }
         }
 
     }
